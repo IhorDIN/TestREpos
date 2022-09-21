@@ -1,0 +1,113 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var qTipTag="a,img,label,input,div,span,td,tr";
+var qTipX=0;
+var qTipY=15;
+tooltip={name:"qTip",offsetX:qTipX,offsetY:qTipY,tip:null};
+tooltip.init=function(){
+var _1="http://www.w3.org/1999/xhtml";
+if(!_2){
+var _2="qTip";
+}
+var _3=document.getElementById(_2);
+if(!_3){
+_3=document.createElementNS?document.createElementNS(_1,"div"):document.createElement("div");
+_3.setAttribute("id",_2);
+document.getElementsByTagName("body").item(0).appendChild(_3);
+}
+if(!document.getElementById){
+return;
+}
+this.tip=document.getElementById(this.name);
+if(this.tip){
+document.onmousemove=function(_4){
+tooltip.move(_4);
+};
+}
+var a,_6,_7;
+var _8=qTipTag.split(",");
+for(var j=0;j<_8.length;j++){
+_7=document.getElementsByTagName(_8[j]);
+if(_7){
+for(var i=0;i<_7.length;i++){
+a=_7[i];
+_6=a.getAttribute("title");
+if(_6){
+a.setAttribute("tiptitle",_6);
+a.removeAttribute("title");
+a.removeAttribute("alt");
+a.onmouseover=function(){
+tooltip.show(this.getAttribute("tiptitle"));
+};
+a.onmouseout=function(){
+tooltip.hide();
+};
+}
+}
+}
+}
+};
+tooltip.move=function(_b){
+var x=0,y=0;
+if(document.all){
+x=(document.documentElement&&document.documentElement.scrollLeft)?document.documentElement.scrollLeft:document.body.scrollLeft;
+y=(document.documentElement&&document.documentElement.scrollTop)?document.documentElement.scrollTop:document.body.scrollTop;
+x+=window.event.clientX;
+y+=window.event.clientY;
+}else{
+x=_b.pageX;
+y=_b.pageY;
+}
+this.tip.style.left=(x+this.offsetX)+"px";
+this.tip.style.top=(y+this.offsetY)+"px";
+};
+tooltip.show=function(_e){
+if(!this.tip){
+return;
+}
+this.tip.innerHTML=_e;
+this.tip.style.display="block";
+};
+tooltip.hide=function(){
+if(!this.tip){
+return;
+}
+this.tip.innerHTML="";
+this.tip.style.display="none";
+};
+window.onload=function(){
+tooltip.init();
+};
+
+}
+/*
+     FILE ARCHIVED ON 00:56:17 Sep 03, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:19:49 Aug 26, 2022.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 282.024
+  exclusion.robots: 0.096
+  exclusion.robots.policy: 0.088
+  cdx.remote: 0.069
+  esindex: 0.009
+  LoadShardBlock: 82.088 (3)
+  PetaboxLoader3.datanode: 70.174 (4)
+  CDXLines.iter: 15.352 (3)
+  load_resource: 147.349
+  PetaboxLoader3.resolve: 120.896
+*/
